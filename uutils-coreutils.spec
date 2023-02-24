@@ -1,3 +1,5 @@
+%global optflags %{optflags} -Oz
+
 %define _enable_debug_packages %{nil}
 %define debug_package %{nil}
 
@@ -6,7 +8,7 @@
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
 Version:	0.0.17
-Release:	1
+Release:	2
 Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
@@ -23,9 +25,26 @@ GNU coreutils and crossplatform.
 %autosetup -p1 -n coreutils-%{version}
 
 %build
+%set_build_flags
+export CARGO_PROFILE_RELEASE_DEBUG=false
+export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1
+export CARGO_PROFILE_RELEASE_INCREMENTAL=false
+export CARGO_PROFILE_RELEASE_LTO=thin
+export CARGO_PROFILE_RELEASE_OPT_LEVEL=z
+export CARGO_PROFILE_RELEASE_PANIC=abort
+export RUSTONIG_DYNAMIC_LIBONIG=1
+
 PROFILE=release SELINUX_ENABLED=0 make
 
 %install
+export CARGO_PROFILE_RELEASE_DEBUG=false
+export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1
+export CARGO_PROFILE_RELEASE_INCREMENTAL=false
+export CARGO_PROFILE_RELEASE_LTO=thin
+export CARGO_PROFILE_RELEASE_OPT_LEVEL=z
+export CARGO_PROFILE_RELEASE_PANIC=abort
+export RUSTONIG_DYNAMIC_LIBONIG=1
+
 make install \
       SELINUX_ENABLED=0 \
       DESTDIR="%{buildroot}" \
