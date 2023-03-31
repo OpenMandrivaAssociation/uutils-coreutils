@@ -8,7 +8,7 @@
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
 Version:	0.0.17
-Release:	2
+Release:	3
 Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
