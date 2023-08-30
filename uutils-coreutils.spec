@@ -7,8 +7,8 @@
 
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.17
-Release:	3
+Version:	0.0.20
+Release:	1
 Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
@@ -59,3 +59,4 @@ make install \
 %{_datadir}/bash-completion/completions/uu-*
 %{_datadir}/fish/vendor_completions.d/uu-*.fish
 %{_datadir}/zsh/site-functions/_uu-*
+%doc %{_mandir}/man1/*1.*
