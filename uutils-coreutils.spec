@@ -7,7 +7,7 @@
 
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.20
+Version:	0.0.21
 Release:	1
 Group:		System/Base
 License:	MIT
