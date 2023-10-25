@@ -7,14 +7,14 @@
 
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.21
+Version:	0.0.22
 Release:	1
 Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
 Source0:	https://github.com/uutils/coreutils/archive/refs/tags/coreutils-%{version}.tar.gz
 BuildRequires:	rust-packaging
-BuildRequires:	rust >= 1.60
+BuildRequires:	rust >= 1.70
 
 %description
 A rust rewrite of GNU coreutils that
