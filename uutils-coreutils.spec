@@ -5,9 +5,11 @@
 
 %define oname uutils
 
+%global __cargo_parse_opts --offline --profile release-small --no-default-features --features unix
+
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.22
+Version:	0.0.23
 Release:	1
 Group:		System/Base
 License:	MIT
@@ -15,6 +17,7 @@ URL:		https://github.com/uutils/coreutils
 Source0:	https://github.com/uutils/coreutils/archive/refs/tags/coreutils-%{version}.tar.gz
 BuildRequires:	rust-packaging
 BuildRequires:	rust >= 1.70
+BuildRequires:	crate(clap)
 
 %description
 A rust rewrite of GNU coreutils that
@@ -23,6 +26,10 @@ GNU coreutils and crossplatform.
 
 %prep
 %autosetup -p1 -n coreutils-%{version}
+%cargo_prep
+
+%generate_buildrequires
+#cargo_generate_buildrequires
 
 %build
 %set_build_flags
@@ -34,7 +41,7 @@ export CARGO_PROFILE_RELEASE_OPT_LEVEL=z
 export CARGO_PROFILE_RELEASE_PANIC=abort
 export RUSTONIG_DYNAMIC_LIBONIG=1
 
-PROFILE=release SELINUX_ENABLED=0 make
+PROFILE=release-small SELINUX_ENABLED=0 make
 
 %install
 export CARGO_PROFILE_RELEASE_DEBUG=false
@@ -51,7 +58,7 @@ make install \
       PREFIX=%{_prefix} \
       MANDIR=/share/man/man1 \
       PROG_PREFIX=uu- \
-      PROFILE=release \
+      PROFILE=release-small \
       MULTICALL=y
 
 %files
