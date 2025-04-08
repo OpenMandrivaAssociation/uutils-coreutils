@@ -26,7 +26,7 @@ aims to be dropin compatible with
 GNU coreutils and crossplatform.
 
 %prep
-%autosetup -p1 -n coreutils-%{version}
+%autosetup -p1 -n coreutils-%{version} -a1
 %cargo_prep -v vendor
 
 %generate_buildrequires
