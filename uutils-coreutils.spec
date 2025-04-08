@@ -9,15 +9,16 @@
 
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.23
+Version:	0.0.30
 Release:	1
 Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
 Source0:	https://github.com/uutils/coreutils/archive/refs/tags/coreutils-%{version}.tar.gz
+Source1:    vendor.tar.xz
 BuildRequires:	rust-packaging
 BuildRequires:	rust >= 1.70
-BuildRequires:	crate(clap)
+#BuildRequires:	crate(clap)
 
 %description
 A rust rewrite of GNU coreutils that
@@ -25,8 +26,8 @@ aims to be dropin compatible with
 GNU coreutils and crossplatform.
 
 %prep
-%autosetup -p1 -n coreutils-%{version}
-%cargo_prep
+%autosetup -p1 -n coreutils-%{version} -a1
+%cargo_prep -v vendor
 
 %generate_buildrequires
 #cargo_generate_buildrequires
