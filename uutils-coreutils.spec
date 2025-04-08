@@ -15,9 +15,10 @@ Group:		System/Base
 License:	MIT
 URL:		https://github.com/uutils/coreutils
 Source0:	https://github.com/uutils/coreutils/archive/refs/tags/coreutils-%{version}.tar.gz
+Source1:    vendor.tar.xz
 BuildRequires:	rust-packaging
 BuildRequires:	rust >= 1.70
-BuildRequires:	crate(clap)
+#BuildRequires:	crate(clap)
 
 %description
 A rust rewrite of GNU coreutils that
@@ -26,7 +27,7 @@ GNU coreutils and crossplatform.
 
 %prep
 %autosetup -p1 -n coreutils-%{version}
-%cargo_prep
+%cargo_prep -v vendor
 
 %generate_buildrequires
 #cargo_generate_buildrequires
