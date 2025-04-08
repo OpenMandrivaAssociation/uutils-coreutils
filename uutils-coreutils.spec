@@ -9,7 +9,7 @@
 
 Summary:	Cross-platform Rust rewrite of the GNU coreutils
 Name:		%{oname}-coreutils
-Version:	0.0.23
+Version:	0.0.30
 Release:	1
 Group:		System/Base
 License:	MIT
