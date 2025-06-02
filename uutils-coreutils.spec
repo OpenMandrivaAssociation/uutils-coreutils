@@ -42,7 +42,7 @@ export CARGO_PROFILE_RELEASE_OPT_LEVEL=z
 export CARGO_PROFILE_RELEASE_PANIC=abort
 export RUSTONIG_DYNAMIC_LIBONIG=1
 
-PROFILE=release-small SELINUX_ENABLED=0 make
+PROFILE=release-small feat_selinux=disable make
 
 %install
 export CARGO_PROFILE_RELEASE_DEBUG=false
