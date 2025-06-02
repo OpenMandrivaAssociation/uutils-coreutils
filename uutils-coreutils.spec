@@ -19,6 +19,7 @@ Source1:    vendor.tar.xz
 BuildRequires:	rust-packaging
 BuildRequires:	rust >= 1.70
 #BuildRequires:	crate(clap)
+BuildRequires:     pkgconfig(libselinux)
 
 %description
 A rust rewrite of GNU coreutils that
