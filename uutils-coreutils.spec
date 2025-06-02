@@ -16,10 +16,10 @@ License:	MIT
 URL:		https://github.com/uutils/coreutils
 Source0:	https://github.com/uutils/coreutils/archive/refs/tags/coreutils-%{version}.tar.gz
 Source1:    vendor.tar.xz
+Patch0:      disable_selinux.patch
 BuildRequires:	rust-packaging
 BuildRequires:	rust >= 1.70
 #BuildRequires:	crate(clap)
-BuildRequires:     pkgconfig(libselinux)
 
 %description
 A rust rewrite of GNU coreutils that
